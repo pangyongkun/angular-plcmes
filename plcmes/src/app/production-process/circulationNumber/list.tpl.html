@@ -1,0 +1,94 @@
+<div class="breadcrumbs" id="breadcrumbs">
+
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            你所在位置:<a href="#">主生产流程</a>
+        </li>
+        <li class="active">流转编号管理</li>
+    </ul>
+
+</div>
+<div class="page-header col-sm-12">
+
+    <div class="col-sm-4 ">
+        <h1>
+            流转编号列表
+        </h1>
+    </div>
+
+    <div class="col-sm-2 "></div>
+    <div class=" btn-group col-sm-6 ">
+        <button type="button" class="btn btn-info  btn-round " ng-click="vm.addCirculationNumber()">新增流转编号</button>
+        <button type="button" class="btn btn-info  btn-round " ng-click="vm.addPrintCirculationNumber()">新增打印流转编号</button>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="col-xs-12">
+
+        <table class="table table-striped table-bordered table-hover text-center">
+            <thead>
+            <tr>
+                <th class="text-center">序号</th>
+                <th class="text-center">起始流转编号</th>
+                <th class="text-center">结束流转编号</th>
+                <th class="text-center">总数</th>
+                <th class="text-center">增加时间</th>
+                <th class="text-center">打印时间</th>
+                <th class="text-center">操作</th>
+            </tr>
+            </thead>
+
+
+            <tbody ng-show="!vm.isLoading">
+            <tr ng-repeat="circulationNumber in vm.circulationNumbers">
+
+                <td>{{circulationNumber.id}}</td>
+                <td>{{circulationNumber.startNumber}}</td>
+                <td>{{circulationNumber.endNumber}}</td>
+                <td>{{circulationNumber.total}}</td>
+                <td>{{circulationNumber.addTime}}</td>
+                <td>{{circulationNumber.printTime}}</td>
+
+                <td title="'操作'">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info btn-round btn-sm">打印</button>
+                        <button type="button" class="btn btn-info btn-round btn-sm">详情</button>
+                        <button type="button" class="btn btn-warning  btn-round btn-sm" ng-click="vm.modifyCirculationNumber(circulationNumber)">修改</button>
+                        <button type="button" class="btn btn-danger btn-round btn-sm" ng-click="vm.deleteCirculationNumber(circulationNumber)">删除</button>
+                    </div>
+                </td>
+
+
+            </tr>
+
+
+            </tbody>
+            <tbody ng-show="vm.isLoading">
+            <tr>
+                <td colspan="7" class="text-center">加载中 ...</td>
+            </tr>
+
+            </tbody>
+
+            <tfoot>
+            <tr>
+                <td class="text-center" colspan="7">
+                    <tm-pagination conf="vm.paginationConf"></tm-pagination>
+                </td>
+            </tr>
+            </tfoot>
+
+
+        </table>
+
+
+    </div>
+    <!-- /.span -->
+</div><!-- /.row -->
+
+

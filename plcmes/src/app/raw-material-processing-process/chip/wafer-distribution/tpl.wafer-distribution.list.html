@@ -1,0 +1,83 @@
+<div class="breadcrumbs" id="breadcrumbs">
+
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            你所在位置:<a href="#">原材料加工流程</a>
+        </li>
+        <li class="">芯片生产管理</li>
+        <li class="">晶圆领取管理</li>
+    </ul>
+</div>
+<div class="page-header col-md-12">
+    <h1 class="col-md-9">
+        晶圆领取管理 / 晶圆领取列表
+    </h1>
+    <button type="button" class="btn btn-primary col-md-2  btn-round"
+            ui-sref="raw-material-processing.chip.wafer-distribution.add">
+        新建晶圆领取记录
+    </button>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-striped table-bordered table-hover text-center table">
+            <thead>
+            <tr>
+                <th class="text-center">序号</th>
+                <th class="text-center">物料号</th>
+                <th class="text-center">物料名称</th>
+                <th class="text-center">规格型号</th>
+                <th class="text-center">晶圆批次号</th>
+                <th class="text-center">领取人</th>
+                <th class="text-center">领取数量</th>
+                <th class="text-center">领取时间</th>
+                <th class="text-center">操作</th>
+            </tr>
+            </thead>
+            <tbody ng-show="!vm.isLoading">
+            <tr ng-repeat="waferDistribution in vm.waferDistributions">
+                <td ng-bind="waferDistribution.id"></td>
+                <td ng-bind="waferDistribution.material.number"></td>
+                <td ng-bind="waferDistribution.material.name"></td>
+                <td ng-bind="waferDistribution.material.model"></td>
+                <td ng-bind="waferDistribution.batch"></td>
+                <td ng-bind="waferDistribution.receiver"></td>
+                <td ng-bind="waferDistribution.receiveAmount"></td>
+                <td ng-bind="waferDistribution.timestamp"></td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info btn-round btn-sm">详情</button>
+                        <button type="button" class="btn btn-warning btn-round btn-sm"
+                                ui-sref="raw-material-processing.chip.wafer-distribution.merge({id:waferDistribution.id})">
+                            修改
+                        </button>
+                        <button type="button" class="btn btn-danger btn-round btn-sm"
+                                ng-click="vm.delete(waferDistribution)">
+                            删除
+                        </button>
+                    </div>
+                </td>
+            </tr>
+
+            </tbody>
+            <tbody ng-show="vm.isLoading">
+            <tr>
+                <td colspan="9" class="text-center">加载中.....</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="9" align="center">
+                    <tm-pagination conf="vm.paginationConf"></tm-pagination>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <!-- /.span -->
+</div><!-- /.row -->
+
+

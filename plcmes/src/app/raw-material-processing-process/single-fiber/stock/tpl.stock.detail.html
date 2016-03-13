@@ -1,0 +1,147 @@
+<div class="breadcrumbs" id="breadcrumbs">
+
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            你所在位置:<a href="#">原材料加工流程</a>
+        </li>
+        <li class="">单纤生产管理</li>
+        <li class="">单纤库存管理</li>
+    </ul>
+
+</div>
+<div class="page-header col-md-12">
+    <h1 class="col-md-9">
+        单纤库存管理 / 单纤库存详情
+    </h1>
+</div>
+
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-3">
+            物料号
+        </div>
+        <div class="col-md-3" ng-bind="vm.stock.number">
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-md-3">
+            物料名称
+        </div>
+        <div class="col-md-3" ng-bind="vm.stock.name">
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-md-3">
+            规格型号
+        </div>
+        <div class="col-md-3" ng-bind="vm.stock.model">
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class=" col-md-3">
+            库存总数
+        </div>
+        <div class="col-md-3" ng-bind="vm.stock.amount">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class=" col-md-3">
+        <h2>入库记录</h2>
+    </div>
+</div>
+<div class="row">
+    <table class="table table-striped table-bordered table-hover text-center table">
+        <thead>
+        <tr>
+            <th class="text-center">序号</th>
+            <th class="text-center">入库数</th>
+            <th class="hidden-480">入库人</th>
+            <th class="hidden-480">入库时间</th>
+            <th class="text-center">操作</th>
+        </tr>
+        </thead>
+        <tbody ng-show="!vm.stockInLoading">
+        <tr>
+            <td colspan="5" class="text-center">加载中.....</td>
+        </tr>
+        </tbody>
+
+        <tbody ng-show="vm.stockInLoading">
+        <tr ng-repeat="stockIn in vm.stock.ins">
+            <td ng-bind="stockIn.id"></td>
+            <td ng-bind="stockIn.amount"></td>
+            <td ng-bind="stockIn.operator"></td>
+            <td ng-bind="stockIn.timestamp"></td>
+            <td>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-warning btn-round" ng-click="vm.mergeStockIn(stockIn.id)">修改
+                    </button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="5" align="center">
+                <tm-pagination conf="vm.stockInConf"></tm-pagination>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+
+<br>
+
+
+<div class="row">
+    <div class="col-md-offset-2 col-md-3">
+        <h2>出库记录</h2>
+    </div>
+</div>
+<div class="row">
+    <table class="table table-striped table-bordered table-hover text-center table">
+        <thead>
+        <tr>
+            <th class="text-center">序号</th>
+            <th class="text-center">出库数</th>
+            <th class="hidden-480">出库人</th>
+            <th class="hidden-480">出库时间</th>
+            <th class="text-center">操作</th>
+        </tr>
+        </thead>
+        <tbody ng-show="!vm.stockOutLoading">
+        <tr>
+            <td colspan="5" class="text-center">加载中.....</td>
+        </tr>
+        </tbody>
+
+        <tbody ng-show="vm.stockOutLoading">
+        <tr ng-repeat="stockOut in vm.stock.outs">
+            <td ng-bind="stockOut.id"></td>
+            <td ng-bind="stockOut.amount"></td>
+            <td ng-bind="stockOut.operator"></td>
+            <td ng-bind="stockOut.timestamp"></td>
+            <td>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-warning btn-round" ng-click="vm.mergeStockOut(stockOut.id)">
+                        修改
+                    </button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="5" align="center">
+                <tm-pagination conf="vm.stockOutConf"></tm-pagination>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>

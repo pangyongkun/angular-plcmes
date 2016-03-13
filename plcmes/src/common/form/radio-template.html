@@ -1,0 +1,12 @@
+<div class="radio-group">
+    <!-- ngRepeat: (key, option) in to.options -->
+    <div ng-repeat="(key, option) in to.options" class="radio ng-scope">
+        <label class="ng-binding">
+            <input type="radio" id="formly_1_radio_triedEmber_6_0" tabindex="0"
+                   ng-value="option[to.valueProp || 'value']" ng-model="model[options.key]"
+                   name="formly_1_radio_triedEmber_6" formly-custom-validation="" required="true"
+                   class="ng-pristine ng-untouched ng-invalid ng-invalid-required" value="male">
+            {{}}
+        </label>
+    </div><!-- end ngRepeat: (key, option) in to.options -->
+</div>

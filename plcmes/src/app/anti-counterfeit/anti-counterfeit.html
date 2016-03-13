@@ -1,0 +1,79 @@
+<div class="breadcrumbs" id="breadcrumbs">
+
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            你所在位置:<a href="#">防伪伪查询</a>
+        </li>
+
+    </ul>
+
+</div>
+<div class="page-header col-md-12">
+    <h1 class="col-md-9">
+        中天宽带产品真伪查询
+    </h1>
+</div>
+
+<div class="row" style="margin-left: 20px">
+    <ul class="list-inline">
+        <li><label>光分路器出厂编号</label></li>
+        <li><input ng-model='vm.serial' class="input-elm" style="height: 32px" placeholder="测试输入 ZTKD1234"></li>
+        <li>
+            <button type="button" class="btn btn-primary btn-round btn-sm" ng-click="vm.getInfo()">查询</button>
+        </li>
+    </ul>
+
+</div>
+
+
+<br>
+
+
+<div class="row" ng-show="vm.show">
+    <div ng-show="vm.isTrue">
+        <div class="row" style="margin-left: 20px">
+            <div class="col-md-6">
+                <table class="table table-bordered table-hover table-responsive table-striped">
+                    <tr>
+                        <td colspan="2" class="text-left">查询结果:该查询是第<span class="red"
+                                                                          ng-bind="vm.messages.count"></span>次查询
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">光分路器出厂编号:</td>
+                        <td ng-bind="vm.messages.serial"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-left">生产厂商:</td>
+                        <td ng-bind="vm.messages.producer"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">出厂日期:</td>
+                        <td ng-bind="vm.messages.timestamp"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">产品真伪:</td>
+                        <td>真品</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row col-md-offset-3" ng-show="!vm.isTrue">
+        <div class="red">
+            没有该编号!!
+        </div>
+    </div>
+</div>
+<div class="col-md-offset-3 red" ng-show="vm.tip">
+    {{vm.tipMessage}}
+</div>
+
+
+
+
+

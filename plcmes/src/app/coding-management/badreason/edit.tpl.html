@@ -1,0 +1,72 @@
+<div class="breadcrumbs" id="breadcrumbs">
+
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            你所在位置:<a href="#">系统编码管理</a>
+        </li>
+
+    </ul>
+
+</div>
+<div class="page-header col-md-12" ng-switch="vm.isModify">
+
+
+    <h1 class="col-md-9" ng-switch-when="true" ng-init="vm.getBadReason()">
+        不良原因修改
+    </h1>
+
+    <h1 class="col-md-9" ng-switch-when="false">
+        不良原因编码
+    </h1>
+
+</div>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <form name="vm.form" novalidate>
+            <formly-form class="form-horizontal" model="vm.model" fields="vm.fields">
+                <div class="clearfix">
+                    <div class="col-sm-3"></div>
+                    <div class="col-md-offset-3 col-md-9" ng-switch="vm.isModify">
+
+
+                        <button class="btn btn-info btn-round" type="button" ng-switch-when="true" ng-click="vm.save()"
+                                ng-disabled="vm.form.$invalid">
+                            <i class="ace-icon fa fa-check bigger-110"></i>
+                            修改
+                        </button>
+
+                        <button class="btn btn-info btn-round" type="button" ng-switch-when="false" ng-click="vm.save()"
+                                ng-disabled="vm.form.$invalid">
+                            <i class="ace-icon fa fa-check bigger-110"></i>
+                            保存
+                        </button>
+
+                        &nbsp; &nbsp;
+                        <button class="btn btn-round" type="reset">
+                            <i class="ace-icon fa fa-undo bigger-110 "></i>
+                            重置
+                        </button>
+                        &nbsp; &nbsp;
+
+                        <button type="button" class="btn btn-danger btn-round" ng-click="vm.back()">
+                            <i class="ace-icon fa fa-backward bigger-110">
+                                返回
+                            </i>
+                        </button>
+                    </div>
+                </div>
+
+            </formly-form>
+        </form>
+    </div>
+
+
+</div>
+<!-- /.span -->
+</div><!-- /.row -->
+
+

@@ -1,0 +1,79 @@
+<div class="breadcrumbs" id="breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            你所在位置:<a href="#">生产流程准备</a>
+        </li>
+        <li class="">生产计划管理</li>
+        <li class="active">子订单信息管理</li>
+    </ul>
+</div>
+<div class="page-header col-md-12">
+    <h1 class="col-md-9">
+        子订单管理 / 子订单列表
+    </h1>
+
+    <div class="btn-group col-md-2 align-right">
+        <button type="button" class="btn btn-primary btn-round"
+                ui-sref="produce-process-pre-management.plan.child-order.add">
+            新建子订单
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-striped table-bordered table-hover text-center table">
+            <thead>
+            <tr>
+                <th class="text-center">序号</th>
+                <th class="text-center">下单时间</th>
+                <th class=" text-center">订单号</th>
+                <th class="text-center">客户</th>
+                <th class="text-center">产品名称</th>
+                <th class="text-center">型号</th>
+                <th class="text-center">数量</th>
+                <th class="text-center">操作</th>
+            </tr>
+            </thead>
+            <tbody ng-show="!vm.isLoading">
+            <tr ng-repeat="childOrder in vm.childOrders">
+                <td ng-bind="childOrder.id"></td>
+                <td ng-bind="childOrder.timestamp"></td>
+                <td ng-bind="childOrder.serial"></td>
+                <td ng-bind="childOrder.client"></td>
+                <td ng-bind="childOrder.productName"></td>
+                <td ng-bind="childOrder.type"></td>
+                <td ng-bind="childOrder.number"></td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info btn-round btn-sm">详情</button>
+                        <button type="button" class="btn btn-warning btn-round btn-sm"
+                                ui-sref="produce-process-pre-management.plan.child-order.merge({id:childOrder.id})">
+                            修改
+                        </button>
+                        <button type="button" class="btn btn-danger btn-round btn-sm" ng-click="vm.delete(childOrder)">
+                            删除
+                        </button>
+                    </div>
+                </td>
+            </tr>
+
+            </tbody>
+            <tbody ng-show="vm.isLoading">
+            <tr>
+                <td colspan="8" class="text-center">加载中.....</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="8" align="center">
+                    <tm-pagination conf="vm.paginationConf"></tm-pagination>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <!-- /.span -->
+</div><!-- /.row -->
+
+

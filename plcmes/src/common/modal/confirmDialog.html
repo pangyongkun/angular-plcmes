@@ -1,0 +1,12 @@
+<div class="modal-header">
+<h3 class="modal-title">请确认</h3>
+</div>
+<div class="modal-body">
+    <ul class="list-unstyled" ng-repeat="message in vm.messages">
+        <li>{{message}}</li>
+    </ul>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-danger" type="button" ng-click="vm.ok()">确定</button>
+    <button class="btn btn-primary" type="button" ng-click="vm.cancel()">取消</button>
+</div>

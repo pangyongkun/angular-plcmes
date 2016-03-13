@@ -1,0 +1,82 @@
+<div class="breadcrumbs" id="breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            你所在位置:<a href="#">生产流程准备</a>
+        </li>
+        <li class="">生产计划管理</li>
+        <li class="active">子订单信息管理</li>
+    </ul>
+</div>
+<div class="page-header col-md-12" ng-switch="vm.isMerge">
+    <h1 class="col-md-9" ng-switch-when="true">
+        生产计划管理 / 修改子订单
+    </h1>
+
+    <h1 class="col-md-9" ng-switch-when="false">
+        生产计划管理 / 新增子订单
+    </h1>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <form name="vm.childOrderForm">
+            <div class="row col-md-12">
+                <div class="col-md-4">
+                    <formly-form class="form-horizontal" model="vm.childOrder" fields="vm.fieldPart1">
+
+                    </formly-form>
+                </div>
+
+                <div class="col-md-4">
+                    <formly-form class="form-horizontal" model="vm.vm.childOrder" fields="vm.fieldPart2">
+
+                    </formly-form>
+                </div>
+
+                <div class="col-md-4">
+                    <formly-form class="form-horizontal" model="vm.vm.childOrder" fields="vm.fieldPart3">
+
+                    </formly-form>
+                </div>
+            </div>
+
+            <!--<formly-form class="form-horizontal" model="vm.childOrder" fields="vm.fields">-->
+            <!--<div class="clearfix">-->
+
+            <!--</div>-->
+
+            <!--</formly-form>-->
+            <br>
+            <div class="col-sm-3"></div>
+            <div class="col-md-offset-3 col-md-9" ng-switch="vm.isMerge">
+                <button class="btn btn-info btn-sm btn-round" type="button" ng-switch-when="true"
+                        ng-click="vm.merge()"
+                        ng-disabled="vm.childOrderForm.$invalid">
+                    <i class="ace-icon fa fa-check bigger-110"></i>
+                    修改
+                </button>
+                <button class="btn btn-info btn-sm btn-round" type="button" ng-switch-when="false"
+                        ng-click="vm.save()"
+                        ng-disabled="vm.childOrderForm.$invalid">
+                    <i class="ace-icon fa fa-check bigger-110"></i>
+                    保存
+                </button>
+                &nbsp; &nbsp; &nbsp;
+                <button class="btn-sm btn-round btn" type="reset">
+                    <i class="ace-icon fa fa-undo bigger-110"></i>
+                    重置
+                </button>
+                <button type="button" class="btn-sm btn-round btn btn-danger" ng-click="vm.back()">
+                    <i class="ace-icon fa fa-backward bigger-110">
+                        返回
+                    </i>
+                </button>
+            </div>
+        </form>
+    </div>
+    <!-- /.span -->
+</div><!-- /.row -->
+
+

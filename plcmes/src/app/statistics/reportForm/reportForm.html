@@ -1,0 +1,53 @@
+<div class="breadcrumbs" id="breadcrumbs">
+
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            你所在位置:<a href="#">数据分析管理</a>
+        </li>
+        <li class="active">报表样例</li>
+    </ul>
+
+</div>
+<div class="page-header col-md-12">
+
+    <div>
+        <h1>
+            数据报表样例
+        </h1>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="col-xs-6">
+            <highchart id="chart1" config="vm.chartConfig" class="span10"></highchart>
+            <button ng-click="vm.addSeries()" class="btn btn-info btn-xs">添加柱状或线性</button>
+            <button ng-click="vm.addPoints()" class="btn btn-info btn-xs">添加点</button>
+            <button ng-click="vm.removeRandomSeries()" class="btn btn-info btn-xs">移除柱状</button>
+            <button ng-click="vm.setLine()" class="btn btn-info btn-xs">线性图</button>
+            <button ng-click="vm.setLineBar()" class="btn btn-info btn-xs">柱状图</button>
+            <button ng-click="vm.setArea()" class="btn btn-info btn-xs">曲线范围图</button>
+            <button ng-click="vm.toggleLoading()" class="btn btn-info btn-xs">加载</button>
+        </div>
+        <div class="col-xs-6">
+            <highchart id="chart2" config="vm.chartConfig1" class="span10"></highchart>
+        </div>
+    </div>
+    <hr/>
+
+    <div class="col-xs-12">
+        <div class="col-xs-6">
+            <highchart id="chart3" config="vm.chartConfig2" class="span10"></highchart>
+        </div>
+        <div class="col-xs-6">
+            <highchart id="chart4" config="vm.chartConfig3" class="span10"></highchart>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+
+

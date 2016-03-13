@@ -1,0 +1,82 @@
+/*pagination 分页*/
+.page-list .pagination {
+    float: left;
+}
+
+.page-list .pagination span {
+    cursor: pointer;
+}
+
+.page-list .pagination .separate span {
+    cursor: default;
+    border-top: none;
+    border-bottom: none;
+}
+
+.page-list .pagination .separate span:hover {
+    background: none;
+}
+
+.page-list .page-total {
+    float: left;
+    margin: 25px 20px;
+}
+
+.page-list .page-total input, .page-list .page-total select {
+    height: 26px;
+    border: 1px solid #ddd;
+}
+
+.page-list .page-total input {
+    width: 40px;
+    padding-left: 3px;
+}
+
+.page-list .page-total select {
+    width: 50px;
+}
+
+/*loading 过度动画*/
+.progress-indicator {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    background-image: url('../img/placeholder.gif');
+    background-size: 3%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 9999;
+    visibility: hidden;
+}
+
+.progress-bar-shown {
+    visibility: visible !important;
+    background-color: #000 !important;
+    height: auto;
+    opacity: 0.5;
+}
+
+.validation {
+    font-size: 1em;
+    color: #a94442;
+}
+
+.cover-indicator {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+
+    z-index: 99999;
+    visibility: hidden;
+}
+
+.cover-shown {
+    visibility: visible !important;
+    height: auto;
+}

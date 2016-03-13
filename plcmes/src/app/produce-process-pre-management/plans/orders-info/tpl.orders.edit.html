@@ -1,0 +1,115 @@
+<div class="breadcrumbs" id="breadcrumbs">
+
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            你所在位置:<a href="#">生产准备流程</a>
+        </li>
+
+        <li class="">生产计划管理</li>
+        <li>订单信息管理</li>
+    </ul>
+
+</div>
+<div class="page-header col-md-12" ng-switch="vm.isMerge">
+
+    <h1 class="col-md-9" ng-switch-when="true">
+        订单信息管理 / 修改订单
+    </h1>
+
+    <h1 class="col-md-9" ng-switch-when="false">
+        订单信息管理 /新增订单
+    </h1>
+
+</div>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <form name="vm.form" novalidate>
+            <div class="row col-md-12">
+                <div class="col-md-4">
+                    <formly-form class="form-horizontal" model="vm.order" fields="vm.fieldsPart1"></formly-form>
+                </div>
+                <div class="col-md-4">
+                    <formly-form class="form-horizontal" model="vm.order" fields="vm.fieldsPart2"></formly-form>
+                </div>
+                <div class="col-md-4">
+                    <formly-form class="form-horizontal" model="vm.order" fields="vm.fieldsPart3"></formly-form>
+                </div>
+
+            </div>
+
+
+            <div class="col-md-12"><h2>产品型号信息</h2></div>
+            <div ng-repeat="productType in vm.order.productTypes">
+                <hr>
+                <div class="col-md-12 row">
+                    <h3 class="blue col-md-offset-1">型号{{$index+1}}</h3>
+
+                    <div class="col-md-4">
+                        <formly-form class="form-horizontal" model="productType" fields="vm.childFiledsPart1">
+
+                        </formly-form>
+                    </div>
+                    <div class="col-md-4">
+                        <formly-form class="form-horizontal" model="productType" fields="vm.childFiledsPart2">
+
+                        </formly-form>
+                    </div>
+                    <div class="col-md-4">
+                        <formly-form class="form-horizontal" model="productType" fields="vm.childFiledsPart3">
+
+                        </formly-form>
+                    </div>
+                    <button type="button" class="btn-sm  btn-danger btn-round col-md-offset-2"
+                            ng-click="vm.remove($index)"
+                            ng-disabled="vm.order.productTypes.length <=1">删除该型号
+                    </button>
+                    <hr>
+                </div>
+
+            </div>
+            <div class="col-md-offset-2">
+                <button class="btn btn-sm btn-primary padding-0 " ng-click="vm.addType()">增加型号</button>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="clearfix">
+                <div class="col-sm-3"></div>
+                <div class="col-md-offset-3 col-md-9" ng-switch="vm.isMerge">
+                    <button class="btn btn-info btn-round btn-sm " type="button" ng-switch-when="true"
+                            ng-click="vm.merge()"
+                            ng-disabled="vm.form.$invalid">
+                        <i class="ace-icon fa fa-check bigger-110"></i>
+                        修改
+                    </button>
+                    <button class="btn btn-info btn-round btn-sm " type="button" ng-switch-when="false"
+                            ng-click="vm.save()"
+                            ng-disabled="vm.form.$invalid">
+                        <i class="ace-icon fa fa-check bigger-110"></i>
+                        保存
+                    </button>
+                    &nbsp; &nbsp;
+                    <button class="btn btn-round btn-sm" type="reset">
+                        <i class="ace-icon fa fa-undo bigger-110 "></i>
+                        重置
+                    </button>
+                    &nbsp; &nbsp;
+                    <button type="button" class="btn btn-danger btn-sm btn-round" ng-click="vm.back()">
+                        <i class="ace-icon fa fa-backward bigger-110">
+                            返回
+                        </i>
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <!-- /.span -->
+</div><!-- /.row -->
+
+

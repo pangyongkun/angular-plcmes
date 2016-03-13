@@ -1,0 +1,76 @@
+<div class="breadcrumbs" id="breadcrumbs">
+
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            你所在位置:<a href="#">系统基本设置</a>
+        </li>
+
+        <li class="active">用户管理</li>
+    </ul>
+
+</div>
+<div class="page-header col-md-12" ng-switch="vm.isMerge">
+
+
+    <h1 class="col-md-9" ng-switch-when="true">
+        系统基本设置 /修改用户
+    </h1>
+
+    <h1 class="col-md-9" ng-switch-when="false">
+        系统基本设置 /新增用户
+    </h1>
+
+</div>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <form name="vm.form" novalidate>
+            <formly-form class="form-horizontal" model="vm.user" fields="vm.fields">
+                <div class="clearfix">
+                    <div class="col-sm-3"></div>
+                    <div class="col-md-offset-3 col-md-9" ng-switch="vm.isMerge">
+
+
+                        <button class="btn btn-info btn-round btn-sm" type="button" ng-switch-when="true" ng-click="vm.merge()"
+                                ng-disabled="vm.form.$invalid">
+                            <i class="ace-icon fa fa-check bigger-110"></i>
+                            修改
+                        </button>
+
+                        <button class="btn btn-info btn-round btn-round btn-sm" type="button" ng-switch-when="false" ng-click="vm.save()"
+                                ng-disabled="vm.form.$invalid">
+                            <i class="ace-icon fa fa-check bigger-110"></i>
+                            保存
+                        </button>
+
+                        &nbsp; &nbsp;
+                        <button class="btn btn-round btn-sm" type="reset">
+                            <i class="ace-icon fa fa-undo bigger-110 "></i>
+                            重置
+                        </button>
+                        &nbsp; &nbsp;
+
+                        <button type="button" class="btn btn-danger btn-round btn-sm" ng-click="vm.back()">
+                            <i class="ace-icon fa fa-backward bigger-110">
+                                返回
+                            </i>
+                        </button>
+                    </div>
+                </div>
+
+            </formly-form>
+        </form>
+    </div>
+
+    <pre>{{vm.user | json}}</pre>
+
+    <div ng-bind-html="vm.getHtml()">
+
+    </div>
+    <!-- /.span -->
+</div><!-- /.row -->
+
+

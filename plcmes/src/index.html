@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8"/>
+    <title>首页</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+
+    <!--NGnotify-->
+    <link rel="stylesheet" href="bower_components/ng-notify/dist/ng-notify.min.css">
+
+    <!--update browser-->
+    <script src="updateBrowser/update.js"></script>
+
+
+    <!--angular-notify-->
+    <link rel="stylesheet" href="bower_components/angular-notify/dist/angular-notify.min.css">
+    <!-- bootstrap & fontawesome -->
+
+    <!--<link rel="stylesheet" href="framework/assets/css/bootstrap.css"/>-->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="framework/assets/css/font-awesome.css"/>
+
+    <!-- page specific plugin styles -->
+
+    <!-- text fonts -->
+    <link rel="stylesheet" href="framework/assets/css/ace-fonts.css"/>
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="framework/assets/css/ace.css" class="ace-main-stylesheet" id="main-ace-style"/>
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="framework/assets/css/ace-part2.css" class="ace-main-stylesheet"/>
+    <![endif]-->
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="framework/assets/css/ace-ie.css"/>
+    <![endif]-->
+
+    <!--ngProcessBar-->
+    <link rel="stylesheet" href="bower_components/ngprogress/ngProgress.css">
+    <!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css">-->
+    <!-- inline styles related to this page -->
+
+    <!--导入自定义样式-->
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!--angular-dialog-service-->
+    <link rel="stylesheet" href="bower_components/angular-dialog-service/dist/dialogs.min.css">
+
+    <!--ngDialog-->
+    <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog.min.css">
+    <link rel="script" href="bower_components/ng-dialog/css/ngDialog-theme-default.min.css">
+
+
+    <!--ng-img-crop-->
+    <link rel="stylesheet" href="bower_components/ng-img-crop/compile/minified/ng-img-crop.css">
+
+    <!--dateTimerPicker-->
+    <link rel="stylesheet" href="bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css">
+
+    <!--ui-select-->
+    <link rel="stylesheet" href="bower_components/ui-select/dist/select.min.css">
+
+    <!-- ace settings handler -->
+    <script src="framework/assets/js/ace-extra.js"></script>
+
+    <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+    <!--[if lte IE 8]>
+    <script src="framework/assets/js/html5shiv.js"></script>
+    <script src="framework/assets/js/respond.js"></script>
+    <![endif]-->
+
+
+</head>
+
+<body class="no-skin position-relative">
+<!-- #section:basics/navbar.layout -->
+<div id="navbar" class="navbar navbar-default">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('navbar', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="navbar-container" id="navbar-container">
+        <!-- #section:basics/sidebar.mobile.toggle -->
+        <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+            <span class="sr-only">Toggle sidebar</span>
+
+            <span class="icon-bar"></span>
+
+            <span class="icon-bar"></span>
+
+            <span class="icon-bar"></span>
+        </button>
+
+        <!-- /section:basics/sidebar.mobile.toggle -->
+        <div class="navbar-header pull-left">
+            <!-- #section:basics/navbar.layout.brand -->
+            <a href="#" class="navbar-brand">
+                <small>
+                    <i class="fa"></i>
+                    中天宽带车间生产数据MES管理系统
+                </small>
+            </a>
+
+            <!-- /section:basics/navbar.layout.brand -->
+
+            <!-- #section:basics/navbar.toggle -->
+
+            <!-- /section:basics/navbar.toggle -->
+        </div>
+
+        <!-- #section:basics/navbar.dropdown -->
+        <div class="navbar-buttons navbar-header pull-right " role="navigation">
+
+            <ul class="nav ace-nav">
+
+                <!-- #section:basics/navbar.user_menu -->
+                <li class="light-blue">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <img class="nav-user-photo" src="framework/assets/avatars/user.jpg" alt="Jason's Photo"/>
+								<span class="user-info">
+									<small>欢迎你,</small>
+									admin
+								</span>
+
+                        <i class="ace-icon fa fa-caret-down"></i>
+                    </a>
+
+                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-closer">
+                        <li>
+                            <a href="#">
+                                <i class="ace-icon fa fa-cog"></i>
+                                设置
+                            </a>
+                        </li>
+
+                        <li class="divider"></li>
+
+                        <li>
+                            <a href="#">
+                                <i class="ace-icon fa fa-power-off"></i>
+                                注销
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- /section:basics/navbar.user_menu -->
+            </ul>
+        </div>
+
+        <!-- /section:basics/navbar.dropdown -->
+    </div>
+    <!-- /.navbar-container -->
+</div>
+
+<!-- /section:basics/navbar.layout -->
+<div class="main-container" id="main-container">
+    <!-- #section:basics/sidebar -->
+    <div id="sidebar" class="sidebar                  responsive">
+        <script type="text/javascript">
+            try {
+                ace.settings.check('sidebar', 'fixed')
+            } catch (e) {
+            }
+        </script>
+
+        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+            <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+                <button class="btn btn-success">
+                    <i class="ace-icon fa fa-signal"></i>
+                </button>
+
+                <button class="btn btn-info">
+                    <i class="ace-icon fa fa-pencil"></i>
+                </button>
+
+                <!-- #section:basics/sidebar.layout.shortcuts -->
+                <button class="btn btn-warning">
+                    <i class="ace-icon fa fa-users"></i>
+                </button>
+
+                <button class="btn btn-danger">
+                    <i class="ace-icon fa fa-cogs"></i>
+                </button>
+
+                <!-- /section:basics/sidebar.layout.shortcuts -->
+            </div>
+
+            <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+                <span class="btn btn-success"></span>
+
+                <span class="btn btn-info"></span>
+
+                <span class="btn btn-warning"></span>
+
+                <span class="btn btn-danger"></span>
+            </div>
+        </div>
+        <!-- /.sidebar-shortcuts -->
+
+        <ul class="nav nav-list">
+
+
+            <li ng-class="{open:$state.includes('basic-setting')}">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-cogs"></i>
+                    <span class="menu-text">系统基本设置</span>
+
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu ">
+                    <li ng-class="{active:$state.includes('basic-setting.role')}" class="">
+                        <a ui-sref="basic-setting.role.list">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            角色权限管理
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="" ng-class="{active:$state.includes('basic-setting.user')}">
+                        <a ui-sref="basic-setting.user.list">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            用户管理
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="" ng-class="{open:$state.includes('codingManagement')}">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-desktop"></i>
+                    <span class="menu-text">系统编码管理</span>
+
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+                    <li class="" ng-class="{active:$state.includes('codingManagement.process')}">
+                        <a ui-sref="codingManagement.process.list">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            生产工序编码管理
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="" ng-class="{active:$state.includes('codingManagement.badReason.list')}">
+                        <a ui-sref="codingManagement.badReason.list">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            不良原因编码管理
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="" ng-class="{active:$state.includes('codingManagement.material')}">
+                        <a ui-sref="codingManagement.material.list">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            物料编码管理
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="" ng-class="{open:$state.includes('produce-process-pre-management')}">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-cog"></i>
+                    <span class="menu-text">生产准备流程管理</span>
+
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+                    <li class="">
+                        <a href="#">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            生产BOM表管理
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="" ng-class="{open:$state.includes('produce-process-pre-management.plan')}">
+                        <a href="#" class="dropdown-toggle"
+                        >
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            生产计划管理
+                            <b class="arrow fa fa-angle-down"></b>
+                        </a>
+
+                        <b class="arrow"></b>
+
+                        <ul class="submenu">
+                            <li class=""
+                                ng-class="{active:$state.includes('produce-process-pre-management.plan.order')}">
+                                <a ui-sref="produce-process-pre-management.plan.order.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    订单信息管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                            <li class=""
+                                ng-class="{active:$state.includes('produce-process-pre-management.plan.child-order')}">
+                                <a ui-sref="produce-process-pre-management.plan.child-order.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    子订单信息管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="">
+                        <a href="#">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            物料领取管理
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="" ng-class="{open:$state.includes('raw-material-processing')}">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-list"></i>
+                    <span class="menu-text">原材料加工流程管理</span>
+
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+
+                    <li class="" ng-class="{open:$state.includes('raw-material-processing.chip')}">
+                        <a href="#" class="dropdown-toggle">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            芯片生产管理
+                            <b class="arrow fa fa-angle-down"></b>
+                        </a>
+
+                        <b class="arrow"></b>
+
+                        <ul class="submenu">
+                            <li ng-class="{active:$state.includes('raw-material-processing.chip.wafer-batch')}">
+                                <a ui-sref="raw-material-processing.chip.wafer-batch.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    晶圆批次管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+
+                            <li class=""
+                                ng-class="{active:$state.includes('raw-material-processing.chip.wafer-distribution')}">
+                                <a ui-sref="raw-material-processing.chip.wafer-distribution.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    晶圆领取管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="" ng-class="{active:$state.includes('raw-material-processing.chip.stock')}">
+                                <a ui-sref="raw-material-processing.chip.stock.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    芯片库存管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="" ng-class="{active:$state.includes('raw-material-processing.chip.stock-in')}">
+                                <a ui-sref="raw-material-processing.chip.stock-in.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    芯片入库管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="" ng-class="{active:$state.includes('raw-material-processing.chip.stock-out')}">
+                                <a ui-sref="raw-material-processing.chip.stock-out.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    芯片出库管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="" ng-class="{open:$state.includes('raw-material-processing.FA')}">
+                        <a href="#" class="dropdown-toggle">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            FA生产管理
+                            <b class="arrow fa fa-angle-down"></b>
+                        </a>
+
+                        <b class="arrow"></b>
+
+                        <ul class="submenu">
+                            <li class="" ng-class="{active:$state.includes('raw-material-processing.FA.V-slot-batch')}">
+                                <a ui-sref="raw-material-processing.FA.V-slot-batch.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    V槽批次管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+
+                            <li class=""
+                                ng-class="{active:$state.includes('raw-material-processing.FA.fiber-ribbon-batch')}">
+                                <a ui-sref="raw-material-processing.FA.fiber-ribbon-batch.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    光纤带批次管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                            <li class=""
+                                ng-class="{active:$state.includes('raw-material-processing.FA.V-slot-distribution')}">
+                                <a ui-sref="raw-material-processing.FA.V-slot-distribution.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    V槽领取管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                            <li class=""
+                                ng-class="{active:$state.includes('raw-material-processing.FA.fiber-ribbon-distribution')}">
+                                <a ui-sref="raw-material-processing.FA.fiber-ribbon-distribution.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    光纤带领取管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="" ng-class="{active:$state.includes('raw-material-processing.FA.stock')}">
+                                <a ui-sref="raw-material-processing.FA.stock.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    FA库存管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                            <li class=""
+                                ng-class="{active:$state.includes('raw-material-processing.FA.stock-in')}">
+                                <a ui-sref="raw-material-processing.FA.stock-in.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    FA入库管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                            <li class=""
+                                ng-class="{active:$state.includes('raw-material-processing.FA.stock-out')}">
+                                <a ui-sref="raw-material-processing.FA.stock-out.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    FA出库管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="" ng-class="{open:$state.includes('raw-material-processing.single-fiber')}">
+                        <a href="#" class="dropdown-toggle">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            单纤管理
+                            <b class="arrow fa fa-angle-down"></b>
+                        </a>
+
+                        <b class="arrow"></b>
+
+                        <ul class="submenu">
+                            <li class=""
+                                ng-class="{active:$state.includes('raw-material-processing.single-fiber.capillary-batch')}">
+                                <a ui-sref="raw-material-processing.single-fiber.capillary-batch.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    毛细管批次管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+
+                            <li class=""
+                                ng-class="{active:$state.includes('raw-material-processing.single-fiber.bare-fiber-batch')}">
+                                <a ui-sref="raw-material-processing.single-fiber.bare-fiber-batch.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    裸光纤带批次管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                            <li class=""
+                                ng-class="{active:$state.includes('raw-material-processing.single-fiber.SF-batch')}">
+                                <a ui-sref="raw-material-processing.single-fiber.SF-batch.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    单纤批次管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                            <li class=""
+                                ng-class="{active:$state.includes('raw-material-processing.single-fiber.stock')}">
+                                <a ui-sref="raw-material-processing.single-fiber.stock.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    单纤库存管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                            <li class=""
+                                ng-class="{active:$state.includes('raw-material-processing.single-fiber.stock-in')}">
+                                <a ui-sref="raw-material-processing.single-fiber.stock-in.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    单纤入库管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                            <li class=""
+                                ng-class="{active:$state.includes('raw-material-processing.single-fiber.stock-out')}">
+                                <a ui-sref="raw-material-processing.single-fiber.stock-out.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    单纤出库管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li class="" ng-class="{open:$state.includes('productionProcess')}">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-wrench  bigger-110 icon-only"></i>
+                    <span class="menu-text">生产流程管理</span>
+
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+                    <li class="" ng-class="{active:$state.includes('productionProcess.circulationNumber')}">
+                        <a href="#" ui-sref='productionProcess.circulationNumber.list'>
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            流转编号管理
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class=""
+                        ng-class="{active:$state.includes('productionProcess.circulationNumberAssociate')}">
+                        <a href="#" ui-sref="productionProcess.circulationNumberAssociate.list">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            流转编号关联管理
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="" ng-class="{active:$state.includes('productionProcess.orderRelated')}">
+                        <a href="#" ui-sref="productionProcess.orderRelated.list">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            订单关联管理
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="">
+                        <a href="#" class="dropdown-toggle">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            生产数据管理
+                            <b class="arrow fa fa-angle-down"></b>
+                        </a>
+
+                        <b class="arrow"></b>
+
+                        <ul class="submenu" ng-class="{open:$state.includes('productionProcess.productionDataManage')}">
+                            <li class=""
+                                ng-class="{active:$state.includes('productionProcess.productionDataManage.productionData')}">
+                                <a href="#" ui-sref="productionProcess.productionDataManage.productionData.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    生产数据查询
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                            <li class=""
+                                ng-class="{active:$state.includes('productionProcess.productionDataManage.circulationNumber')}">
+                                <a href="#" ui-sref="productionProcess.productionDataManage.circulationNumber.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    流转编号查询
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+
+                            <li class=""
+                                ng-class="{active:$state.includes('productionProcess.productionDataManage.order')}">
+                                <a href="#" ui-sref="productionProcess.productionDataManage.order.list">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    订单查询
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="" ng-class="{active:$state.includes('productionProcess.SNPrint')}">
+                        <a href="#" ui-sref="productionProcess.SNPrint.list">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            出厂SN打印
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                    <li class="">
+                        <a href="#">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            封装箱打印
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                </ul>
+            </li>
+            <li class="" ng-class="{open:$state.includes('dataAcquisition')}">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon ace-icon glyphicon glyphicon-tags"></i>
+                    <span class="menu-text">生产数据采集管理</span>
+
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+                    <li ng-class="{active:$state.includes('dataAcquisition.acquisitionManage')}" class="">
+                        <a href="#" ui-sref="dataAcquisition.acquisitionManage.list">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            采集数据管理
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="" ng-class="{active:$state.includes('dataAcquisition.GFTrace')}">
+                        <a href="#" ui-sref="dataAcquisition.GFTrace.list">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            光分路器信息追朔
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="" ng-class="{active:$state.includes('dataAcquisition.GFPTrace')}">
+                        <a href="#" ui-sref="dataAcquisition.GFPTrace.list">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            光分路器信息批量追朔
+                        </a>
+                        <b class="arrow"></b>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="" ng-class="{open:$state.includes('statics')}">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon ace-icon fa fa-bar-chart-o"></i>
+                    <span class="menu-text">数据统计分析管理</span>
+
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+                    <li ng-class="{active:$state.includes('statics.reportFormManage')}" class="">
+                        <a href="#" ui-sref="statics.reportFormManage">
+                            <i ui-sref="systeminfo.role.list" class="menu-icon fa fa-caret-right"></i>
+                            报表管理
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="" ng-class="{active:$state.includes('statics.reportForm')}">
+                        <a href="#" ui-sref="statics.reportForm">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            报表样例1
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li class="" ng-class="{open:$state.includes('anti-counterfeit')}">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon  ace-icon glyphicon glyphicon-search"></i>
+                    <span class="menu-text">防伪查询</span>
+
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+                    <li ng-class="{active:$state.includes('anti-counterfeit')}" class="">
+                        <a ui-sref="anti-counterfeit">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            防伪查询
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li ng-class="{active:$state.includes('codeBar')}">
+                <a ui-sref="codeBar">
+                    <i class="menu-icon fa fa-list-alt"></i>
+                    条形码打印
+                </a>
+                <b class="arrow"></b>
+            </li>
+
+
+        </ul>
+        <!-- /.nav-list -->
+
+        <!-- #section:basics/sidebar.layout.minimize -->
+        <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+            <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left"
+               data-icon2="ace-icon fa fa-angle-double-right"></i>
+        </div>
+
+        <!-- /section:basics/sidebar.layout.minimize -->
+        <script type="text/javascript">
+            try {
+                ace.settings.check('sidebar', 'collapsed')
+            } catch (e) {
+            }
+        </script>
+    </div>
+
+
+    <!-- /section:basics/sidebar -->
+    <div class="main-content">
+        <div class="page-content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- PAGE CONTENT BEGINS -->
+                    <!--页面内容开始-->
+                    <alert-bar class="alert_bar" style="z-index: 10" message="tipService.message"
+                               type="tipService.type"></alert-bar>
+                    <div ui-view></div>
+                    <!--页面内容结束-->
+                    <!-- PAGE CONTENT ENDS -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.page-content -->
+    </div>
+    <!-- /.main-content -->
+</div>
+<!-- /.main-container -->
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+<div ng-controller="progressBarCtrl">
+    <div class="progress-indicator" ng-class="{'progress-bar-shown': shown}"></div>
+    <div class="cover-indicator" ng-class="{'cover-shown': coverShow}"></div>
+</div>
+
+
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='framework/assets/js/jquery.js'>" + "<" + "/script>");
+</script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='framework/assets/js/jquery1x.js'>" + "<" + "/script>");
+</script>
+<![endif]-->
+<script type="text/javascript">
+    if ('ontouchstart' in document.documentElement) document.write("<script src='framework/assets/js/jquery.mobile.custom.js'>" + "<" + "/script>");
+</script>
+<script src="framework/assets/js/bootstrap.js"></script>
+
+<!-- page specific plugin scripts -->
+
+<!-- ace scripts -->
+<script src="framework/assets/js/ace/elements.scroller.js"></script>
+<script src="framework/assets/js/ace/elements.colorpicker.js"></script>
+<script src="framework/assets/js/ace/elements.fileinput.js"></script>
+<script src="framework/assets/js/ace/elements.typeahead.js"></script>
+<script src="framework/assets/js/ace/elements.wysiwyg.js"></script>
+<script src="framework/assets/js/ace/elements.spinner.js"></script>
+<script src="framework/assets/js/ace/elements.treeview.js"></script>
+<script src="framework/assets/js/ace/elements.wizard.js"></script>
+<script src="framework/assets/js/ace/elements.aside.js"></script>
+<script src="framework/assets/js/ace/ace.js"></script>
+<script src="framework/assets/js/ace/ace.ajax-content.js"></script>
+<script src="framework/assets/js/ace/ace.touch-drag.js"></script>
+<script src="framework/assets/js/ace/ace.sidebar.js"></script>
+<script src="framework/assets/js/ace/ace.sidebar-scroll-1.js"></script>
+<script src="framework/assets/js/ace/ace.submenu-hover.js"></script>
+<script src="framework/assets/js/ace/ace.widget-box.js"></script>
+<script src="framework/assets/js/ace/ace.settings.js"></script>
+<script src="framework/assets/js/ace/ace.settings-rtl.js"></script>
+<script src="framework/assets/js/ace/ace.settings-skin.js"></script>
+<script src="framework/assets/js/ace/ace.widget-on-reload.js"></script>
+<script src="framework/assets/js/ace/ace.searchbox-autocomplete.js"></script>
+
+<!-- inline scripts related to this page -->
+
+
+<!-- the following scripts are used in demo only for onpage help and you don't need them -->
+<link rel="stylesheet" href="framework/assets/css/ace.onpage-help.css"/>
+
+
+<script type="text/javascript"> ace.vars['base'] = '..'; </script>
+<script src="framework/assets/js/ace/elements.onpage-help.js"></script>
+<script src="framework/assets/js/ace/ace.onpage-help.js"></script>
+
+<!--angular lib-->
+<!--angular lib-->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/lodash/lodash.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/ng-dialog/js/ngDialog.min.js"></script>
+<script src="bower_components/ngprogress/build/ngprogress.min.js"></script>
+<script src="bower_components/restangular/dist/restangular.js"></script>
+<script src="bower_components/angular-smart-table/dist/smart-table.min.js"></script>
+
+<!--highChart-->
+<!--<script src="bower_components/highcharts/highstock.src.js"></script>-->
+<script src="bower_components/highcharts/highcharts.src.js"></script>
+<script src="bower_components/highcharts/highcharts-3d.src.js"></script>
+<script src="bower_components/highcharts/adapters/standalone-framework.js"></script>
+<script src="bower_components/highcharts-ng/dist/highcharts-ng.js"></script>
+
+<!--formly-->
+<script src="bower_components/api-check/dist/api-check.js"></script>
+<script src="bower_components/angular-formly/dist/formly.js"></script>
+<script src="bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
+
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/ng-dialog/js/ngDialog.min.js"></script>
+
+
+<!--angular-dialog-->
+<script src="bower_components/angular-translate/angular-translate.min.js"></script>
+<script src="bower_components/angular-dialog-service/dist/dialogs-default-translations.min.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="bower_components/angular-dialog-service/dist/dialogs.min.js"></script>
+
+
+<!--angular-notify-->
+<script src="bower_components/angular-notify/dist/angular-notify.min.js"></script>
+
+<!--ng-img-crop-->
+<script src="bower_components/ng-img-crop/compile/minified/ng-img-crop.js"></script>
+
+<!--ng-file-upload-->
+<script src="bower_components/ng-file-upload/ng-file-upload-all.min.js"></script>
+
+<!--NGNotify-->
+<script src="bower_components/ng-notify/dist/ng-notify.min.js"></script>
+
+<!--ngSanitize-->
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<!--ui.select-->
+<script src="bower_components/ui-select/dist/select.min.js"></script>
+<!--datetimepicker-->
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
+<script src="bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js"></script>
+
+
+<!--ueditor Config-->
+<script src="framework/UEditor/ueditor.config.js"></script>
+<script src="framework/UEditor/ueditor.all.js"></script>
+
+
+<!--angular-ueditor-->
+<script src="bower_components/angular-ueditor/dist/angular-ueditor.min.js"></script>
+
+
+<!--=================  RAP for test   ============-->
+<script src="bower_components/ng-rap/index.js"></script>
+
+<!--custom components-->
+<script src="common/form/formConf.js"></script>
+<script src="common/modal/confirmModal.js"></script>
+<script src="common/directctives/pagination.js"></script>
+<script src="common/directctives/progress.js"></script>
+<script src="common/directctives/codingManagement/loading.js"></script>
+<script src="common/directctives/crudbtn.js"></script>
+
+<!--sample-->
+<script src="app/_sample_for_look/sample.js"></script>
+<script src="app/_sample_for_look/sample.service.js"></script>
+<script src="app/_sample_for_look/sample.controller.js"></script>
+
+
+<!-----start----------------------------------------------basicSetting js----------------------------------------------------->
+
+
+<script src="app/basic-setting/basic-setting.js"></script>
+
+<script src="app/basic-setting/role/role.js"></script>
+<script src="app/basic-setting/role/role.service.js"></script>
+<script src="app/basic-setting/role/role.controller.js"></script>
+
+<script src="app/basic-setting/user/user.js"></script>
+<script src="app/basic-setting/user/user.service.js"></script>
+<script src="app/basic-setting/user/user.controller.js"></script>
+<!----end//-----------------------------------------------basicSetting js----------------------------------------------------->
+
+
+<!--============================================================系统编码管理===========================-->
+<script src="app/coding-management/coding-management.js"></script>
+
+<script src="app/coding-management/badreason/badreason.js"></script>
+<script src="app/coding-management/badreason/badreason.service.js"></script>
+<script src="app/coding-management/badreason/editCtrl.js"></script>
+<script src="app/coding-management/badreason/listCtrl.js"></script>
+
+<script src="app/coding-management/material/material.js"></script>
+<script src="app/coding-management/material/material.service.js"></script>
+<script src="app/coding-management/material/editCtrl.js"></script>
+<script src="app/coding-management/material/listCtrl.js"></script>
+
+<script src="app/coding-management/process/process.js"></script>
+<script src="app/coding-management/process/process.service.js"></script>
+<script src="app/coding-management/process/editCtrl.js"></script>
+<script src="app/coding-management/process/listCtrl.js"></script>
+
+
+<!--==============================================================系统编码=============================-->
+
+
+<!-----//start----------------------------------------------produce-process------------------------------------------------------>
+<script src="app/produce-process-pre-management/plans/orders-info/orders-info.js"></script>
+<script src="app/produce-process-pre-management/plans/orders-info/orders-info.service.js"></script>
+<script src="app/produce-process-pre-management/plans/orders-info/orders-info.controller.js"></script>
+
+<script src="app/produce-process-pre-management/plans/child-order-info/child-order.js"></script>
+<script src="app/produce-process-pre-management/plans/child-order-info/child-order.service.js"></script>
+<script src="app/produce-process-pre-management/plans/child-order-info/child-order.controller.js"></script>
+
+<script src="app/produce-process-pre-management/plans/plans.js"></script>
+
+
+<script src="app/produce-process-pre-management/produceProcessPre.js"></script>
+
+<!-----//end----------------------------------------------produce-process----------------------------------------------------->
+
+
+<!--//start ----------------- raw-material-processing ----------------------- --->
+
+<!--FA-->
+<script src="app/raw-material-processing-process/FA/V-slot-batch/V-slot-batch.js"></script>
+<script src="app/raw-material-processing-process/FA/V-slot-batch/V-slot-batch.service.js"></script>
+<script src="app/raw-material-processing-process/FA/V-slot-batch/V-slot-batch.controller.js"></script>
+
+<script src="app/raw-material-processing-process/FA/V-slot-distribution/V-slot-distribution.js"></script>
+<script src="app/raw-material-processing-process/FA/V-slot-distribution/V-slot-distribution.service.js"></script>
+<script src="app/raw-material-processing-process/FA/V-slot-distribution/V-slot-distribution.controller.js"></script>
+
+
+<script src="app/raw-material-processing-process/FA/fiber-ribbon-batch/fiber-ribbon-batch.js"></script>
+<script src="app/raw-material-processing-process/FA/fiber-ribbon-batch/fiber-ribbon-batch.service.js"></script>
+<script src="app/raw-material-processing-process/FA/fiber-ribbon-batch/fiber-ribbon-batch.controller.js"></script>
+
+<script src="app/raw-material-processing-process/FA/fiber-ribbon-distribution/fiber-ribbon-distribution.js"></script>
+<script src="app/raw-material-processing-process/FA/fiber-ribbon-distribution/fiber-ribbon-distribution.service.js"></script>
+<script src="app/raw-material-processing-process/FA/fiber-ribbon-distribution/fiber-ribbon-distribution.controller.js"></script>
+
+<script src="app/raw-material-processing-process/FA/stock/stock.js"></script>
+<script src="app/raw-material-processing-process/FA/stock/stock.service.js"></script>
+<script src="app/raw-material-processing-process/FA/stock/stock.controller.js"></script>
+
+<script src="app/raw-material-processing-process/FA/stock-in/stock-in.js"></script>
+<script src="app/raw-material-processing-process/FA/stock-in/stock-in.service.js"></script>
+<script src="app/raw-material-processing-process/FA/stock-in/stock-in.controller.js"></script>
+
+<script src="app/raw-material-processing-process/FA/stock-out/stock-out.js"></script>
+<script src="app/raw-material-processing-process/FA/stock-out/stock-out.service.js"></script>
+<script src="app/raw-material-processing-process/FA/stock-out/stock-out.controller.js"></script>
+
+
+<script src="app/raw-material-processing-process/FA/FA.js"></script>
+
+<!--/FA-->
+
+
+<!--chip-->
+<script src="app/raw-material-processing-process/chip/wafer-batch/wafer-batch.js"></script>
+<script src="app/raw-material-processing-process/chip/wafer-batch/wafer-batch.service.js"></script>
+<script src="app/raw-material-processing-process/chip/wafer-batch/wafer-batch.controller.js"></script>
+
+<script src="app/raw-material-processing-process/chip/wafer-distribution/wafer-distribution.js"></script>
+<script src="app/raw-material-processing-process/chip/wafer-distribution/wafer-distribution.service.js"></script>
+<script src="app/raw-material-processing-process/chip/wafer-distribution/wafer-distribution.controller.js"></script>
+
+<script src="app/raw-material-processing-process/chip/stock/stock.js"></script>
+<script src="app/raw-material-processing-process/chip/stock/stock.service.js"></script>
+<script src="app/raw-material-processing-process/chip/stock/stock.controller.js"></script>
+
+<script src="app/raw-material-processing-process/chip/stock-in/stock-in.js"></script>
+<script src="app/raw-material-processing-process/chip/stock-in/stock-in.service.js"></script>
+<script src="app/raw-material-processing-process/chip/stock-in/stock-in.controller.js"></script>
+
+<script src="app/raw-material-processing-process/chip/stock-out/stock-out.js"></script>
+<script src="app/raw-material-processing-process/chip/stock-out/stock-out.service.js"></script>
+<script src="app/raw-material-processing-process/chip/stock-out/stock-out.controller.js"></script>
+
+
+<script src="app/raw-material-processing-process/chip/chip.js"></script>
+
+<!--/chip-->
+
+<!--single-fiber-->
+<script src="app/raw-material-processing-process/single-fiber/bare-fiber-batch/bare-fiber-batch.js"></script>
+<script src="app/raw-material-processing-process/single-fiber/bare-fiber-batch/bare-fiber-batch.service.js"></script>
+<script src="app/raw-material-processing-process/single-fiber/bare-fiber-batch/bare-fiber-batch.controller.js"></script>
+
+<script src="app/raw-material-processing-process/single-fiber/capillary-batch/capillary-batch.js"></script>
+<script src="app/raw-material-processing-process/single-fiber/capillary-batch/capillary-batch.service.js"></script>
+<script src="app/raw-material-processing-process/single-fiber/capillary-batch/capillary-batch.controller.js"></script>
+
+<script src="app/raw-material-processing-process/single-fiber/SF-batch/SF-batch.js"></script>
+<script src="app/raw-material-processing-process/single-fiber/SF-batch/SF-batch.service.js"></script>
+<script src="app/raw-material-processing-process/single-fiber/SF-batch/SF-batch.controller.js"></script>
+
+<script src="app/raw-material-processing-process/single-fiber/stock/stock.js"></script>
+<script src="app/raw-material-processing-process/single-fiber/stock/stock.service.js"></script>
+<script src="app/raw-material-processing-process/single-fiber/stock/stock.controller.js"></script>
+
+<script src="app/raw-material-processing-process/single-fiber/stock-in/stock-in.js"></script>
+<script src="app/raw-material-processing-process/single-fiber/stock-in/stock-in.service.js"></script>
+<script src="app/raw-material-processing-process/single-fiber/stock-in/stock-in.controller.js"></script>
+
+<script src="app/raw-material-processing-process/single-fiber/stock-out/stock-out.js"></script>
+<script src="app/raw-material-processing-process/single-fiber/stock-out/stock-out.service.js"></script>
+<script src="app/raw-material-processing-process/single-fiber/stock-out/stock-out.controller.js"></script>
+
+<script src="app/raw-material-processing-process/single-fiber/single-fiber.js"></script>
+
+
+<!--/single-fiber-->
+
+
+<script src="app/raw-material-processing-process/raw-material-processing.js"></script>
+
+<!--//end--------------------raw-material-processing----->
+
+
+<!--==============================================================生产流程管理=========================-->
+<script src="app/production-process/circulationNumber/circulationNumber.js"></script>
+<script src="app/production-process/circulationNumber/circulationNumber.service.js"></script>
+<script src="app/production-process/circulationNumber/listCtrl.js"></script>
+<script src="app/production-process/circulationNumber/editCtrl.js"></script>
+
+<script src="app/production-process/circulationNumberAssociate/circulationNumberAssociate.js"></script>
+<script src="app/production-process/circulationNumberAssociate/circulationNumberAssociate.service.js"></script>
+<script src="app/production-process/circulationNumberAssociate/listCtrl.js"></script>
+<script src="app/production-process/circulationNumberAssociate/editCtrl.js"></script>
+
+<script src="app/production-process/orderRelated/orderRelated.js"></script>
+<script src="app/production-process/orderRelated/orderRelated.service.js"></script>
+<script src="app/production-process/orderRelated/listCtrl.js"></script>
+
+
+<script src="app/production-process/productionDataManage/productionData/productionData.js"></script>
+<script src="app/production-process/productionDataManage/productionData/productionData.service.js"></script>
+<script src="app/production-process/productionDataManage/productionData/listCtrl.js"></script>
+
+<script src="app/production-process/productionDataManage/circulationNumber/circulationNumber.js"></script>
+<script src="app/production-process/productionDataManage/circulationNumber/circulationNumber.service.js"></script>
+<script src="app/production-process/productionDataManage/circulationNumber/listCtrl.js"></script>
+
+<script src="app/production-process/productionDataManage/order/order.js"></script>
+<script src="app/production-process/productionDataManage/order/order.service.js"></script>
+<script src="app/production-process/productionDataManage/order/listCtrl.js"></script>
+
+<script src="app/production-process/productionDataManage/productionDataManage.js"></script>
+
+
+<script src="app/production-process/SNPrint/SNPrint.js"></script>
+<script src="app/production-process/SNPrint/SNPrint.service.js"></script>
+<script src="app/production-process/SNPrint/listCtrl.js"></script>
+
+<script src="app/production-process/procuction-process.js"></script>
+<!--==================================================================生产流程管理=============================-->
+
+<!--==================================================================生产数据采集管理==========================-->
+<script src="app/data-acquisition/acquisitionManage/acquisitionManage.js"></script>
+<script src="app/data-acquisition/acquisitionManage/acquisitionManage.service.js"></script>
+<script src="app/data-acquisition/acquisitionManage/listsCtrl.js"></script>
+
+<script src="app/data-acquisition/GFTrace/GFTrace.js"></script>
+<script src="app/data-acquisition/GFTrace/GFTrace.service.js"></script>
+<script src="app/data-acquisition/GFTrace/listsCtrl.js"></script>
+
+<script src="app/data-acquisition/GFPTrace/GFPTrace.js"></script>
+<script src="app/data-acquisition/GFPTrace/listCtrl.js"></script>
+
+<script src="app/data-acquisition/data-acquisition.js"></script>
+<!--==================================================================生产数据采集管理==========================-->
+
+<!--===================================================================数据分析管理=============================-->
+<script src="app/statistics/statistics.js"></script>
+
+<script src="app/statistics/reportForm/reportForm.js"></script>
+<script src="app/statistics/reportForm/reportCtrl.js"></script>
+
+<script src="app/statistics/reportFormManage/reportFormManage.js"></script>
+<script src="app/statistics/reportFormManage/listCtrl.js"></script>
+<!--===================================================================数据分析管理=============================-->
+
+<!--anti-counterfeit-->
+<script src="app/anti-counterfeit/anti-counterfeit.js"></script>
+<script src="app/anti-counterfeit/anti-counterfeit.service.js"></script>
+<script src="app/anti-counterfeit/anti-counterfeit.controller.js"></script>
+
+<!--//anti-counterfeit-->
+
+
+<!--codeBar-->
+<script src="app/codebar/codebar.js"></script>
+<script src="app/codebar/codebar.service.js"></script>
+<script src="app/codebar/codebar.controller.js"></script>
+<!--/codeBar-->
+
+
+<script src="app/app.js"></script>
+
+</body>
+</html>

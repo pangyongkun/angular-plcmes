@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h3 class="modal-title">请截取头像</h3>
+</div>
+<div class="modal-body">
+    <div style="width: 400px">
+        <div ngf-drop ng-model="picFile" ngf-pattern="image/*"
+             class="cropArea">
+            <img-crop image="picFile  | ngfDataUrl"
+                      result-image="croppedDataUrl">
+            </img-crop>
+        </div>
+
+
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-danger" type="button" ng-click="ok()">确定</button>
+    <button class="btn btn-primary" type="button" ng-click="cancel()">取消</button>
+</div>

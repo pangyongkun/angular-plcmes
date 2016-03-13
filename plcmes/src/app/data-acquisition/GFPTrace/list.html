@@ -1,0 +1,139 @@
+<div class="breadcrumbs" id="breadcrumbs">
+
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            你所在位置:<a href="#">生产数据采集管理</a>
+        </li>
+        <li>
+            光分路器信息批量追朔
+        </li>
+    </ul>
+
+</div>
+<div class="page-header col-md-12">
+    <h1>光分路器信息批量追朔</h1>
+
+</div>
+<div class="page-content col-md-12">
+    <div class="col-xs-4">
+        <label>光纤编号:</label>
+        <input type="text" placeholder="光纤编号" class="nav-search-btn" type="text" style="width:140px">
+    </div>
+    <div class="col-xs-4">
+        <label>光纤编号:</label>
+        <input type="text" placeholder="光纤编号" class="nav-search-btn" type="text" style="width:140px">
+    </div>
+    <div class="col-xs-4">
+
+    </div>
+
+</div>
+<div class="page-content col-md-12">
+    <div class="col-xs-4">
+        <label>光纤编号:</label>
+        <input type="text" placeholder="光纤编号" class="nav-search-btn" type="text" style="width:140px">
+    </div>
+    <div class="col-xs-4">
+        <label>光纤编号:</label>
+        <input type="text" placeholder="光纤编号" class="nav-search-btn" type="text" style="width:140px">
+    </div>
+
+    <div class="col-xs-4">
+        <button type="button" class="btn btn-info btn-round">查询</button>
+    </div>
+
+
+</div>
+
+
+<div class="row">
+    <div class="col-xs-12 ">
+
+        <table class="table table-striped table-bordered table-hover text-center">
+            <thead>
+            <tr>
+                <th class="text-center">序名</th>
+                <th class="text-center">光纤编号</th>
+                <th class="text-center">操作</th>
+            </tr>
+            </thead>
+            <tbody ng-show="!vm.isLoading">
+            <tr>
+                <td>1</td>
+                <td>ZTKD354848654</td>
+                <td title="'操作'">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info btn-round btn-sm">查看</button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info btn-round btn-sm">折叠</button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+    <div class="col-xs-12 ">
+
+        <table class="table table-striped table-bordered table-hover text-center">
+            <tr ng-repeat="GFPTrace in vm.GFPTraces">
+
+                <td>{{GFPTrace.process}}</td>
+                <td>{{GFPTrace.completeState}}</td>
+                <td>{{GFPTrace.operator}}</td>
+                <td>
+                    <div ng-repeat="value in GFPTrace.checkData">{{value}}</div>
+                </td>
+                <td>{{GFPTrace.rework}}</td>
+                <td>{{GFPTrace.reworkState}}</td>
+
+                <td>{{GFPTrace.time}}</td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+    <div class="col-xs-12 ">
+
+        <table class="table table-striped table-bordered table-hover text-center">
+
+            <tr ng-repeat="order in vm.orders">
+
+                <td>{{order.id}}</td>
+                <td>{{order.number}}</td>
+
+
+                <td title="'操作'">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info btn-round btn-sm">查看</button>
+                        <button type="button" class="btn btn-info btn-round btn-sm">展开</button>
+
+                    </div>
+                </td>
+
+            </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+    <!-- /.span -->
+</div><!-- /.row -->
+
+

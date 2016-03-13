@@ -1,0 +1,54 @@
+<div class="breadcrumbs" id="breadcrumbs">
+
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            你所在位置:<a href="#">条形码打印</a>
+        </li>
+
+    </ul>
+
+</div>
+<div class="page-header col-md-12">
+    <h1 class="col-md-9">
+        打印条形码
+    </h1>
+</div>
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-8">
+        <div ng-repeat="code in vm.codes track by $index">
+            <div class="row">
+                <div class="col-md-6 box">
+                    <div class="input-group margin-bottom-sm" id="userInputGroup">
+                        <span class="input-group-addon"><i class="fa fa-barcode fa-fw"></i></span>
+                        <input class="form-control" type="text" placeholder="请输入编号"
+                               ng-model="vm.codes[$index]">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-danger btn-sm btn-round" ng-show="vm.codes.length>1"
+                            ng-click="vm.remove($index)">
+                        移除
+                    </button>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-6 ">
+                <button class="btn btn-info btn-round" ng-click="vm.add()">
+                    添加条码
+                </button>
+                <button type="button" class="btn btn-primary btn-round"
+                        ng-click="vm.printCode()">打印
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

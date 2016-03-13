@@ -1,0 +1,68 @@
+<div class="breadcrumbs" id="breadcrumbs">
+
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            你所在位置:<a href="#">主生产流程</a>
+        </li>
+        <li>报表管理</li>
+    </ul>
+
+</div>
+
+<div class="page-header col-md-12">
+    <h1>报表列表</h1>
+
+</div>
+
+<div class="page-content col-xs-12">
+    <div class="col-xs-4">
+        <label>报表类型:</label>
+        <select ng-model="vm.selectReport" ng-options="o.name for o in vm.reportType" style="width:150px">
+            <option value="">请选择报表类型</option>
+        </select>
+
+    </div>
+
+    <div class="col-xs-4">
+        <label>其他条件:</label>
+        <input placeholder="" type="text" ng-model="vm.other" style="width:150px">
+    </div>
+    <div class="col-xs-4">
+        <button class="btn btn-info btn-round" ng-click="vm.generate()">生成</button>
+    </div>
+
+</div>
+
+
+
+<div class="row">
+
+    <div class="col-xs-12">
+        <table class="table table-striped table-bordered table-hover text-center">
+            <thead>
+            <tr>
+                <th class="text-center">序号</th>
+                <th class="text-center">报表类型</th>
+                <th class="text-center">报表时间</th>
+                <th class="text-center">下载链接</th>
+            </tr>
+            </thead>
+            <tr ng-repeat="reportForm in vm.reportForms">
+                <td>{{reportForm.id}}</td>
+                <td>{{reportForm.name}}</td>
+                <td>{{reportForm.time|date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td><a href="data/reportForm.xls">{{reportForm.name}}_{{reportForm.other}}.xls</a></td>
+
+            </tr>
+
+
+            </tbody>
+
+        </table>
+    </div>
+    <!-- /.span -->
+</div><!-- /.row -->
+
+

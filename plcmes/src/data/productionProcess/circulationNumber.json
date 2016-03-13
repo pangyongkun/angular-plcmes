@@ -1,0 +1,18 @@
+[
+  {
+    "id":1,
+    "startNumber":"ZTKD1507000001",
+    "endNumber":"ZTKD1507001000",
+    "total":1000,
+    "addTime":"2015-8-10 12:00:01",
+    "printTime":"未打印"
+  },
+  {
+    "id":2,
+    "startNumber":"ZTKD1507000002",
+    "endNumber":"ZTKD1507002000",
+    "total":1000,
+    "addTime":"2015-8-10 14:00:01",
+    "printTime":"2015-8-10 14:00:01"
+  }
+]
